@@ -8,19 +8,24 @@
     <script src="vendors/angular-route.js"></script>
     <script src="scripts/client.js"></script>
     <link rel="shortcut icon" href="clockFavicon.png" type="image/x-icon">
+    <script src="scripts/services/service.js"></script>
+    <script src="scripts/controllers/entry.controller.js"></script>
+    <script src="scripts/controllers/project.controller.js"></script>
+    <script src="scripts/controllers/report.controller.js"></script>
     <title>Time Tracker</title>
 </head>
-<body ng-ap="timeTrackerApp">
-    <nav>
-        <div class="navBar">
+<body ng-app="TimeTrackerApp">
+    <h1>Time Tracker</h1>
+    <div class="navBar">
+        <nav>
             <span><a href="#!/">Add Entry</a></span>
-            <span><a href="#!/projects">Manage Projects</a></span>
-            <span><a href="#!/reports">Reports</a></span>
-        </div>
-    </nav>
+            <span><a href="#!/project">Manage Projects</a></span>
+            <span><a href="#!/report">Reports</a></span>
+        </nav>
+    </div>
     <div>
         <ng-view>
-            
+
         </ng-view>
     </div>
 </body>
