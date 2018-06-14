@@ -1,4 +1,4 @@
-let app = angular.module('TimeTrackerApp', ['ngRoute']);
+let app = angular.module('TimeTrackerApp', ['ngRoute', 'ngMaterial', 'ngMessages']);
 
 app.config(function($routeProvider){
     $routeProvider.when('/', {

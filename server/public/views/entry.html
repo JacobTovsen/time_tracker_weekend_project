@@ -4,10 +4,12 @@
     <option value="project1">Project 1</option>
     <option value="project2">Project 2</option>
 </select>
-<p>add date picker here</p>
+<div flex-gt-xs>
+    <md-datepicker ng-model="vm.dateIn" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+</div>
 <input type="text" placeholder="Start Time" ng-model="startIn">
 <input type="text" placeholder="End Time" ng-model="endIn">
-<button ng-click="vm.entryIn()">Submit</button>
+<button ng-click="vm.entryIn(vm.dateIn)">Submit</button>
 <br>
 <h3>History</h3>
 <p>Add History Table Here (ng-repeat of table entry)</p>
