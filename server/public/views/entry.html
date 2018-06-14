@@ -1,4 +1,13 @@
-<h1>Test from entry.html</h1>
-<p>it works!</p>
-
-{{7+7}}
+<h3>Add Entry</h3>
+<input type="text" placeholder="What did you do?" ng-model="vm.titleIn">
+<select ng-model="vm.projectIn">
+    <option value="project1">Project 1</option>
+    <option value="project2">Project 2</option>
+</select>
+<p>add date picker here</p>
+<input type="text" placeholder="Start Time" ng-model="startIn">
+<input type="text" placeholder="End Time" ng-model="endIn">
+<button ng-click="vm.entryIn()">Submit</button>
+<br>
+<h3>History</h3>
+<p>Add History Table Here (ng-repeat of table entry)</p>
