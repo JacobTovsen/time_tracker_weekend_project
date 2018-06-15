@@ -6,12 +6,12 @@ app.controller('EntryController', function(HomeService){
         console.log('in entryIn');
     }
     
-    self.entryArray = [
-        {entry: 'Populated Database', project: 'Weekend Project', date:'6/15/18', hours: 2},
-        {entry: 'Electrical Work', project: 'Garage Build', date:'6/15/18', hours: 10},
-        {entry: 'Painted the basement', project: 'Honey-do List', date:'4/5/18', hours: 4}
-    ]
-    
+    self.getProject = function(){
+        HomeService.serviceGetProjects()
+        .then(function(){
+            self.projects=HomeService.projects;
+        });
+    }
     
     self.getEntry = function(){
         HomeService.serviceGetEntry()
@@ -27,5 +27,20 @@ app.controller('EntryController', function(HomeService){
         });
     }
 
+    self.entryIn = function(){
+        let postEntryData = {entry: self.titleIn, project: self.projectIn, date: self.dateIn, hours: self.hoursIn};
+        HomeService.postEntryData = postEntryData;
+        console.log(postEntryData);
+        HomeService.serviceEntryIn()
+        .then(function(){
+            self.getEntry();
+            self.titleIn = '';
+            self.projectIn = '';
+            self.dateIn = '';
+            self.hoursIn = '';
+        });
+    }
+
     self.getEntry();
+    self.getProject();
 });

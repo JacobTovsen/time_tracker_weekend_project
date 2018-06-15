@@ -43,5 +43,19 @@ router.delete('/entry/:id', (req, res) => {
         })
 })
 
+router.post('/entry', function( req, res){
+    console.log('In entry POST to create', req.body);
+    const queryText = `INSERT INTO entry (entry, project, date, hours)
+    VALUES($1, $2, $3, $4)`;
+    console.log(queryText);
+    pool.query(queryText, [req.body.entry, req.body.project, req.body.date, req.body.hours])
+        .then( (result) => {
+            console.log('back from db with:', result );
+            res.sendStatus(200);
+        }).catch((error) => {  
+            console.log('error in entry POST', error);
+            res.sendStatus(500);
+        })
+})
 
 module.exports = router;
