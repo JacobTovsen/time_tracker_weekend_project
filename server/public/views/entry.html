@@ -12,4 +12,23 @@
 <button ng-click="vm.entryIn(vm.dateIn)">Submit</button>
 <br>
 <h3>History</h3>
-<p>Add History Table Here (ng-repeat of table entry)</p>
+<div></div>
+    <table>
+        <thead>
+            <th>Entry</th>
+            <th>Project</th>
+            <th>Date</th>
+            <th>Hours</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="entry in vm.entryArray">
+                <td>{{entry.entry}}</td>
+                <td>{{entry.project}}</td>
+                <td>{{entry.date}}</td>
+                <td>{{entry.hours}}</td>
+                <td><button>Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

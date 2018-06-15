@@ -2,4 +2,19 @@
 <input type="text" placeholder="Project Name" ng-model="vm.projectIn">
 <button ng-click="vm.runProjectIn()">Submit</button>
 <h3>Projects</h3>
-<p>add in projects table</p>
+
+
+<table>
+    <thead>
+        <th>Project</th>
+        <th>Total Hours</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="project in vm.projectArray">
+            <td>{{project.project}}</td>
+            <td>{{project.totalHours}}</td>
+            <td><button>Delete</button></td>
+        </tr>   
+    </tbody>
+</table>
