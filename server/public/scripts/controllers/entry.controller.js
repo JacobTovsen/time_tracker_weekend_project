@@ -20,5 +20,12 @@ app.controller('EntryController', function(HomeService){
         });
     }
 
+    self.deleteEntry = function(id){
+        HomeService.serviceDeleteEntry(id)
+        .then(function(){
+            self.getEntry();
+        });
+    }
+
     self.getEntry();
 });

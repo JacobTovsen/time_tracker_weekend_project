@@ -25,9 +25,20 @@ app.service('HomeService', function($http){
         }).then(function(response){
             console.log('back from entry GET with:', response);
             sv.entry=response.data;
-            console.log('this is sv.entry:', sv.entry);
         }).catch(function(error){
             console.log('error with entry GET');
+        }); //end http
+    } // end serviceGetEntry
+
+    sv.serviceDeleteEntry = function(id){
+        return $http({
+            method: 'DELETE',
+            url:`/router/entry/${id}`
+        }).then(function(response){
+            console.log('back from entry DELETE', response);
+        }).catch(function(error){
+            console.log('Error with entry DELETE', error);
         });
     }
+
 })

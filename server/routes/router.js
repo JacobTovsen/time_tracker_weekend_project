@@ -28,5 +28,20 @@ router.get('/entry', (req, res) => {
         })
 })
 
+router.delete('/entry/:id', (req, res) => {
+    const id = req.params.id;
+    console.log('in router DELETE to delete');
+    const queryText = 'DELETE FROM entry WHERE id=$1';
+    console.log('this is the queryText:', queryText);
+    pool.query(queryText, [id])
+        .then((results) => {
+            console.log('successful entry delete', results);
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('error deleting power:', error);
+            res.sendStatus(500);
+        })
+})
+
 
 module.exports = router;
