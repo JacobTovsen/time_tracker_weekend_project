@@ -22,10 +22,10 @@
             <th>Actions</th>
         </thead>
         <tbody>
-            <tr ng-repeat="entry in vm.entryArray">
+            <tr ng-repeat="entry in vm.entry">
                 <td>{{entry.entry}}</td>
                 <td>{{entry.project}}</td>
-                <td>{{entry.date}}</td>
+                <td>{{entry.date | date: 'MM/dd/yyyy'}}</td>
                 <td>{{entry.hours}}</td>
                 <td><button>Delete</button></td>
             </tr>
