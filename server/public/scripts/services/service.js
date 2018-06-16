@@ -41,6 +41,17 @@ app.service('HomeService', function($http){
         }); // end http
     } // end serviceDeleteEntry
 
+    sv.serviceDeleteProject = function(id){
+        return $http({
+            method: 'DELETE',
+            url:`/router/project/${id}`
+        }).then(function(response){
+            console.log('back from project DELETE', response);
+        }).catch(function(error){
+            console.log('Error with project DELETE', error);
+        }); // end http
+    } // end serviceDeleteProject
+
     sv.serviceEntryIn = function(){
         console.log('in service entry POST function:', sv.postEntryData);
         return $http({

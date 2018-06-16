@@ -30,7 +30,7 @@ router.get('/entry', (req, res) => {
 
 router.delete('/entry/:id', (req, res) => {
     const id = req.params.id;
-    console.log('in router DELETE to delete');
+    console.log('in router entry DELETE to delete');
     const queryText = 'DELETE FROM entry WHERE id=$1';
     console.log('this is the queryText:', queryText);
     pool.query(queryText, [id])
@@ -38,10 +38,25 @@ router.delete('/entry/:id', (req, res) => {
             console.log('successful entry delete', results);
             res.sendStatus(200);
         }).catch((error) => {
-            console.log('error deleting power:', error);
+            console.log('error deleting entry:', error);
             res.sendStatus(500);
         })
 }) // end entry DELETE
+
+router.delete('/project/:id', (req, res) => {
+    const id = req.params.id;
+    console.log('in router project DELETE to delete');
+    const queryText = 'DELETE FROM project WHERE id=$1';
+    console.log('this is the queryText:', queryText);
+    pool.query(queryText, [id])
+        .then((results) => {
+            console.log('successful project delete', results);
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('error deleting project:', error);
+            res.sendStatus(500);
+        })
+}) // end project DELETE
 
 router.post('/entry', function( req, res){
     console.log('In entry POST to create', req.body);
