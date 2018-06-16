@@ -1,4 +1,9 @@
-let app = angular.module('TimeTrackerApp', ['ngRoute', 'ngMaterial', 'ngMessages']);
+let app = angular.module('TimeTrackerApp', ['ngRoute', 'ngMaterial', 'ngMessages']).config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('blue')
+      .accentPalette('orange')
+      .backgroundPalette('orange')
+      ;});
 
 app.config(function($routeProvider){
     $routeProvider.when('/', {

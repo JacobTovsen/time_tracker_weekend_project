@@ -1,22 +1,25 @@
-<h3>Add Project</h3>
-<md-input-container class="md-block" flex=50>
-    <input type="text" placeholder="Project Name" ng-model="vm.projectIn">
-</md-input-container>
-<md-button class="md-raised md-primary" ng-click="vm.runProjectIn()">Submit</md-button>
-<h3>Projects</h3>
+<div class="view">
+    <h3>Add Project</h3>
+    <md-input-container class="md-block" flex=50>
+        <input type="text" placeholder="Project Name" ng-model="vm.projectIn">
+    </md-input-container>
+    <md-button class="md-raised md-primary" ng-click="vm.runProjectIn()">Submit</md-button>
 
 
-<table>
-    <thead>
-        <th>Project</th>
-        <th>Total Hours</th>
-        <th>Actions</th>
-    </thead>
-    <tbody>
-        <tr ng-repeat="project in vm.projects">
-            <td>{{project.name}}</td>
-            <td>{{project.sum}}</td>
-            <td><button ng-click="vm.deleteProject( project.id )">Delete</button></td>
-        </tr>   
-    </tbody>
-</table>
+
+    <h3>Projects</h3>
+    <table class="w3-table-all w3-hoverable">
+        <thead>
+            <th>Project</th>
+            <th>Total Hours</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="project in vm.projects">
+                <td>{{project.name}}</td>
+                <td>{{project.sum}}</td>
+                <td><md-button class="md-raised md-accent" ng-click="vm.deleteProject( project.id )">Delete</md-button></td>
+            </tr>   
+        </tbody>
+    </table>
+</div>

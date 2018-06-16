@@ -10,27 +10,32 @@
     <script src="vendors/angular-animate.min.js"></script>
     <script src="vendors/angular-aria.min.js"></script>
     <script src="vendors/angular-messages.min.js"></script>
+    <script src="vendors/angular-material-table.js"></script>
     <script src="scripts/client.js"></script>
-    <link rel="shortcut icon" href="clockFavicon.png" type="image/x-icon">
     <script src="scripts/services/service.js"></script>
     <script src="scripts/controllers/entry.controller.js"></script>
     <script src="scripts/controllers/project.controller.js"></script>
     <script src="scripts/controllers/report.controller.js"></script>
+    <link rel="shortcut icon" href="clockFavicon.png" type="image/x-icon">
     <link rel="stylesheet" href="vendors/angular-material.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="styles/style.css">
     <title>Time Tracker</title>
 </head>
 <body ng-app="TimeTrackerApp">
     <div class="navBar">
-        <h1>Time Tracker</h1>
+        <br>
+        <h1 class="navline">Time Tracker</h1>
         <nav class="links">
-            <span><a href="#!/">Add Entry</a></span>
-            <span><a href="#!/project">Manage Projects</a></span>
-            <span><a href="#!/report">Reports</a></span>
+            <br>
+            <span><a class="navline" href="#!/">Add Entry</a></span>
+            <span><a class="navline" href="#!/project">Manage Projects</a></span>
+            <span><a class="navline" href="#!/report">Reports</a></span>
+            <hr>
         </nav>
     </div>
     <div>
-        <ng-view>
+        <ng-view class="view">
 
         </ng-view>
     </div>

@@ -1,51 +1,53 @@
-<h3>Add Entry</h3>
-<div layout="row" layout-wrap>
-    <md-input-container class="md-block" flex=50>
-        <input type="text" placeholder="What did you do?" ng-model="vm.titleIn">
-    </md-input-container>
-    <md-input-container class="md-block" flex=50>
-        <label>Project</label>
-        <md-select ng-model="vm.projectIn">
-        <md-option ng-repeat="project in vm.projects" value="{{project.name}}">
-            {{project.name}}
-        </md-option>
-        </md-select>
-    </md-input-container>
-</div>
-<div layout="row" layout-wrap>
-    <!-- <md-input-container class="md-block" flex=33>
-        <input type="time" placeholder="Start Time" ng-model="startIn">
-    </md-input-container>
-    <md-input-container class="md-block" flex=33>
-        <input type="time" placeholder="End Time" ng-model="endIn">
-    </md-input-container> -->
-    <md-input-container class="md-block" flex=50>
-        <input type="number" placeholder="Hours Spent" ng-model="vm.hoursIn">
-    </md-input-container>
-    <div flex=33>
-        <md-datepicker ng-model="vm.dateIn" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+<div class="view">
+    <h3>Add Entry</h3>
+    <div layout="row" layout-wrap>
+        <md-input-container class="md-block" flex=50>
+            <input type="text" placeholder="What did you do?" ng-model="vm.titleIn">
+        </md-input-container>
+        <md-input-container class="md-block" flex=50>
+            <label>Project</label>
+            <md-select ng-model="vm.projectIn">
+            <md-option ng-repeat="project in vm.projects" value="{{project.name}}">
+                {{project.name}}
+            </md-option>
+            </md-select>
+        </md-input-container>
     </div>
-</div>
-<md-button class="md-raised md-primary" ng-click="vm.entryIn()">Submit</md-button>
-<br>
-<h3>History</h3>
-<div></div>
-    <table>
-        <thead>
-            <th>Entry</th>
-            <th>Project</th>
-            <th>Date</th>
-            <th>Hours</th>
-            <th>Actions</th>
-        </thead>
-        <tbody>
-            <tr ng-repeat="entry in vm.entry">
-                <td>{{entry.entry}}</td>
-                <td>{{entry.project}}</td>
-                <td>{{entry.date | date: 'MM/dd/yyyy'}}</td>
-                <td>{{entry.hours}}</td>
-                <td><button ng-click="vm.deleteEntry( entry.id )">Delete</button></td>
-            </tr>
-        </tbody>
-    </table>
+    <div layout="row" layout-wrap>
+        <!-- <md-input-container class="md-block" flex=33>
+            <input type="time" placeholder="Start Time" ng-model="startIn">
+        </md-input-container>
+        <md-input-container class="md-block" flex=33>
+            <input type="time" placeholder="End Time" ng-model="endIn">
+        </md-input-container> -->
+        <md-input-container class="md-block" flex=50>
+            <input type="number" placeholder="Hours Spent" ng-model="vm.hoursIn">
+        </md-input-container>
+        <div flex=33>
+            <md-datepicker ng-model="vm.dateIn" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+        </div>
+    </div>
+    <md-button class="md-raised md-primary" ng-click="vm.entryIn()">Submit</md-button>
+    <br>
+    <h3>History</h3>
+    <div></div>
+        <table class="w3-table-all w3-hoverable">
+            <thead>
+                <th>Entry</th>
+                <th>Project</th>
+                <th>Date</th>
+                <th>Hours</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in vm.entry">
+                    <td>{{entry.entry}}</td>
+                    <td>{{entry.project}}</td>
+                    <td>{{entry.date | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{entry.hours}}</td>
+                    <td><md-button class="md-raised md-accent" ng-click="vm.deleteEntry( entry.id )">Delete</md-button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
