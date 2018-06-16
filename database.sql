@@ -16,3 +16,8 @@ VALUES ('Weekend Project');
 
 INSERT INTO entry ("entry", "project", "date", "hours")
 VALUES ('Worked on SQL entries', 'Weekend Project', '2018-06-14', 2);
+
+SELECT project.name, SUM(entry.hours), project.id
+    FROM project
+    LEFT JOIN entry ON project.name = entry.project
+    GROUP BY project.name, project.id;

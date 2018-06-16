@@ -12,7 +12,7 @@
     </thead>
     <tbody>
         <tr ng-repeat="project in vm.projects">
-            <td>{{project.project}}</td>
+            <td>{{project.name}}</td>
             <td>{{project.sum}}</td>
             <td><button ng-click="vm.deleteProject( project.id )">Delete</button></td>
         </tr>   

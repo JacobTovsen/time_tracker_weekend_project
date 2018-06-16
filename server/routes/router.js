@@ -4,10 +4,10 @@ const pool = require('../modules/pool');
 
 router.get('/project', (req, res) => {
     console.log('In router project GET');
-    const queryText = `SELECT entry.project, SUM(entry.hours)
+    const queryText = `SELECT project.name, SUM(entry.hours), project.id
     FROM project
-    INNER JOIN entry ON project.name = entry.project
-    GROUP BY entry.project;`
+    LEFT JOIN entry ON project.name = entry.project
+    GROUP BY project.name, project.id;`
     pool.query(queryText)
         .then((result) => {
             res.send(result.rows);
