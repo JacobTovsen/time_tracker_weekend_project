@@ -2,10 +2,6 @@ app.controller('EntryController', function(HomeService){
     let self = this;
     console.log('in EntryController');
     
-    self.entryIn = function(){
-        console.log('in entryIn');
-    }
-    
     self.getProject = function(){
         HomeService.serviceGetProjects()
         .then(function(){
@@ -28,6 +24,10 @@ app.controller('EntryController', function(HomeService){
     }
 
     self.entryIn = function(){
+        console.log('time in = ', self.startIn);
+        console.log('time out = ', self.endIn);
+        
+        
         let postEntryData = {entry: self.titleIn, project: self.projectIn, date: self.dateIn, hours: self.hoursIn};
         HomeService.postEntryData = postEntryData;
         console.log(postEntryData);

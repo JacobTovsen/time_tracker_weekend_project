@@ -1,18 +1,31 @@
 <h3>Add Entry</h3>
-<input type="text" placeholder="What did you do?" ng-model="vm.titleIn">
-<!-- <select ng-model="vm.projectIn">
-    <option value="project1">Project 1</option>
-    <option value="project2">Project 2</option>
-</select> -->
-<select ng-model="vm.projectIn">
-        <option value="">---Please select---</option>
-        <option ng-repeat="project in vm.projects" value="{{project.name}}">{{project.name}}</option>
-</select>
-<div flex-gt-xs>
-    <md-datepicker ng-model="vm.dateIn" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+<div layout="row" layout-wrap>
+    <md-input-container class="md-block" flex=50>
+        <input type="text" placeholder="What did you do?" ng-model="vm.titleIn">
+    </md-input-container>
+    <md-input-container class="md-block" flex=50>
+        <label>Project</label>
+        <md-select ng-model="vm.projectIn">
+        <md-option ng-repeat="project in vm.projects" value="{{project.name}}">
+            {{project.name}}
+        </md-option>
+        </md-select>
+    </md-input-container>
 </div>
-<input type="number" placeholder="Hours Spent" ng-model="vm.hoursIn">
-<!-- <input type="text" placeholder="End Time" ng-model="endIn"> -->
+<div layout="row" layout-wrap>
+    <!-- <md-input-container class="md-block" flex=33>
+        <input type="time" placeholder="Start Time" ng-model="startIn">
+    </md-input-container>
+    <md-input-container class="md-block" flex=33>
+        <input type="time" placeholder="End Time" ng-model="endIn">
+    </md-input-container> -->
+    <md-input-container class="md-block" flex=50>
+        <input type="number" placeholder="Hours Spent" ng-model="vm.hoursIn">
+    </md-input-container>
+    <div flex=33>
+        <md-datepicker ng-model="vm.dateIn" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+    </div>
+</div>
 <button ng-click="vm.entryIn()">Submit</button>
 <br>
 <h3>History</h3>
