@@ -39,7 +39,8 @@ app.controller('EntryController', function(HomeService){
             self.titleIn = '';
             self.projectIn = '';
             self.dateIn = '';
-            // self.hoursIn = '';
+            self.startIn = '';
+            self.endIn = '';
         });
     }
 
@@ -54,12 +55,12 @@ app.controller('EntryController', function(HomeService){
 
         let totalTime = ((timeOut - timeIn) / 60).toFixed(2);
 
-        console.log(inHours);
-        console.log(outHours);
-        console.log(inMinutes);
-        console.log(outMinutes);
+        // console.log(inHours);
+        // console.log(outHours);
+        // console.log(inMinutes);
+        // console.log(outMinutes);
         console.log('Total time:', totalTime , 'hours');
-        self.hoursIn = totalTime;
+        // self.hoursIn = totalTime;
     };
 
     self.getEntry();

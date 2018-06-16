@@ -2,7 +2,7 @@ let app = angular.module('TimeTrackerApp', ['ngRoute', 'ngMaterial', 'ngMessages
     $mdThemingProvider.theme('default')
       .primaryPalette('blue')
       .accentPalette('orange')
-      .backgroundPalette('orange')
+      .backgroundPalette('blue')
       ;});
 
 app.config(function($routeProvider){
