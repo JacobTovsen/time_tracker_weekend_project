@@ -42,7 +42,7 @@ app.service('HomeService', function($http){
     } // end serviceDeleteEntry
 
     sv.serviceEntryIn = function(){
-        console.log('in service postCall function:', sv.postEntryData);
+        console.log('in service entry POST function:', sv.postEntryData);
         return $http({
             method: 'POST',
             url:'/router/entry',
@@ -50,8 +50,23 @@ app.service('HomeService', function($http){
         }).then(function(response){
             console.log('back from entry POST with:', response);
         }).catch(function(error){
-            console.log('Error in POST:', error);
+            console.log('Error in entry POST:', error);
         }); //end http
     } // end serviceEntryIn
+
+    sv.serviceProjectIn = function(){
+        console.log('in service project POST function:', sv.postProjectData);
+        return $http({
+            method: 'POST',
+            url: '/router/project',
+            data: sv.postProjectData
+        }).then(function(response){
+            console.log('back from project POST with:', response);
+        }).catch(function(error){
+            console.log('Error in project POST:', error);
+        }); //end http
+    } // end serviceProjectIn
+
+
 
 })

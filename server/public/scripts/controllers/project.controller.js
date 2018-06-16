@@ -2,17 +2,24 @@ app.controller('ProjectController', function(HomeService){
     let self = this;
     console.log('in ProjectController');
     
-    this.runProjectIn = function(){
-        console.log('in runProjectIn');
+    self.runProjectIn = function(){
+        let postProjectData = {name: self.projectIn};
+        HomeService.postProjectData = postProjectData;
+        HomeService.serviceProjectIn()
+        .then(function(){
+            self.getProjects();
+        });
     }
     
-    this.getProjects = function(){
+    self.getProjects = function(){
         HomeService.serviceGetProjects()
         .then(function(){
             self.projects = HomeService.projects;
+            console.log('log of self.projects in controller:', self.projects);
         });    
     }
 
-    this.getProjects();
-    console.log('log of self.projects in controller:', self.projects);
+
+
+    self.getProjects();
 });

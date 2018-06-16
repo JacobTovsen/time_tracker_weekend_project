@@ -13,7 +13,7 @@ router.get('/project', (req, res) => {
             console.log('Error getting projects:', error);
             res.sendStatus(500);
         })
-})
+}) // end router project GET
 
 router.get('/entry', (req, res) => {
     console.log('In router entry GET');
@@ -26,7 +26,7 @@ router.get('/entry', (req, res) => {
             console.log('Error getting projects:', error);
             res.sendStatus(500);
         })
-})
+}) // end router entry GET
 
 router.delete('/entry/:id', (req, res) => {
     const id = req.params.id;
@@ -41,7 +41,7 @@ router.delete('/entry/:id', (req, res) => {
             console.log('error deleting power:', error);
             res.sendStatus(500);
         })
-})
+}) // end entry DELETE
 
 router.post('/entry', function( req, res){
     console.log('In entry POST to create', req.body);
@@ -56,6 +56,21 @@ router.post('/entry', function( req, res){
             console.log('error in entry POST', error);
             res.sendStatus(500);
         })
-})
+}) // end entry POST
+
+router.post('/project', function( req, res){
+    console.log('In project POST to create', req.body);
+    const queryText =`INSERT INTO project (name)
+    VALUES($1)`;
+    console.log(queryText);
+    pool.query(queryText, [req.body.name])
+        .then( (result) => {
+            console.log('back from db with:', result );
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('error in project POST', error);
+            res.sendStatus(500);
+        })
+}) // end project POST
 
 module.exports = router;
