@@ -52,9 +52,10 @@ app.controller('EntryController', function(HomeService){
 
         let timeIn = inHours + inMinutes;
         let timeOut = outHours + outMinutes;
-
+       
+        timeOut < timeIn ? timeOut += (24*60) : timeOut;  //fixes issues with going past midnight
+       
         let totalTime = ((timeOut - timeIn) / 60).toFixed(2);
-
         // console.log(inHours);
         // console.log(outHours);
         // console.log(inMinutes);
