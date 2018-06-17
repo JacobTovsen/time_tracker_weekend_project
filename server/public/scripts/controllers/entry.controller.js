@@ -60,7 +60,7 @@ app.controller('EntryController', function(HomeService){
         // console.log(inMinutes);
         // console.log(outMinutes);
         console.log('Total time:', totalTime , 'hours');
-        // self.hoursIn = totalTime;
+        self.hoursIn = totalTime;
     };
 
     self.sortTable = function(n) {
