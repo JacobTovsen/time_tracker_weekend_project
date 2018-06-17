@@ -50,6 +50,7 @@ app.controller('EntryController', function(HomeService){
         let inMinutes = self.startIn.getMinutes();
         let outMinutes = self.endIn.getMinutes();
 
+
         let timeIn = inHours + inMinutes;
         let timeOut = outHours + outMinutes;
        
