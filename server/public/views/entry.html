@@ -1,43 +1,45 @@
 <div class="view">
-    <h3>Add Entry</h3>
-    <div layout="row" layout-wrap>
-        <md-input-container class="md-block" flex=50>
-            <input type="text" placeholder="What did you do?" ng-model="vm.titleIn">
-        </md-input-container>
-        <md-input-container class="md-block" flex=50>
-            <label>Project</label>
-            <md-select ng-model="vm.projectIn">
-            <md-option ng-repeat="project in vm.projects" value="{{project.name}}">
-                {{project.name}}
-            </md-option>
-            </md-select>
-        </md-input-container>
-    </div>
-    <div layout="row" layout-wrap>
-        <md-input-container class="md-block" flex=33>
-            <input type="time" placeholder="Start Time" ng-model="vm.startIn">
-        </md-input-container>
-        <md-input-container class="md-block" flex=33>
-            <input type="time" placeholder="End Time" ng-model="vm.endIn">
-        </md-input-container>
-        <!-- <md-input-container class="md-block" flex=50>
-            <input type="number" placeholder="Hours Spent" ng-model="vm.hoursIn">
-        </md-input-container> -->
-        <div flex=33>
-            <md-datepicker ng-model="vm.dateIn" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+    <div class="entryDiv">
+        <h3>Add Entry</h3>
+        <div layout="row" layout-wrap>
+            <md-input-container class="md-block" flex=50>
+                <input type="text" placeholder="What did you do?" ng-model="vm.titleIn">
+            </md-input-container>
+            <md-input-container class="md-block" flex=50>
+                <label>Project</label>
+                <md-select ng-model="vm.projectIn">
+                <md-option ng-repeat="project in vm.projects" value="{{project.name}}">
+                    {{project.name}}
+                </md-option>
+                </md-select>
+            </md-input-container>
         </div>
+        <div layout="row" layout-wrap>
+            <md-input-container class="md-block" flex=33>
+                <input type="time" placeholder="Start Time" ng-model="vm.startIn">
+            </md-input-container>
+            <md-input-container class="md-block" flex=33>
+                <input type="time" placeholder="End Time" ng-model="vm.endIn">
+            </md-input-container>
+            <!-- <md-input-container class="md-block" flex=50>
+                <input type="number" placeholder="Hours Spent" ng-model="vm.hoursIn">
+            </md-input-container> -->
+            <div flex=33>
+                <md-datepicker ng-model="vm.dateIn" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+            </div>
+        </div>
+        <md-button class="md-raised md-primary" ng-click="vm.entryIn()">Submit</md-button>
     </div>
-    <md-button class="md-raised md-primary" ng-click="vm.entryIn()">Submit</md-button>
     <br>
     <h3>History</h3>
-    <div></div>
+    <div>
         <table class="w3-table-all w3-hoverable w3-card-4" id="entryTable">
             <thead>
                 <th ng-click="vm.sortTable(0)">Entry</th>
                 <th ng-click="vm.sortTable(1)">Project</th>
                 <th ng-click="vm.sortTable(2)">Date</th>
                 <th ng-click="vm.sortTable(3)">Hours</th>
-                <th>Actions</th>
+                <th class="actionTH" style="text-align:center">Actions</th>
             </thead>
             <tbody>
                 <tr ng-repeat="entry in vm.entry">
@@ -45,7 +47,7 @@
                     <td>{{entry.project}}</td>
                     <td>{{entry.date | date: 'MM/dd/yyyy'}}</td>
                     <td>{{entry.hours}}</td>
-                    <td><md-button class="md-raised md-accent" ng-click="vm.deleteEntry( entry.id )">Delete</md-button></td>
+                    <td style="text-align:center"><md-button class="md-raised md-primary" ng-click="vm.editEntry( entry.id )">Edit</md-button><md-button class="md-raised md-accent" ng-click="vm.deleteEntry( entry.id )">Delete</md-button></td>
                 </tr>
             </tbody>
         </table>
